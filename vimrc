@@ -48,4 +48,4 @@ endif
 
 colo ron
 
-au BufNewFile *.py 0r /where/you/saved/your/header.template
+au BufNewFile *.py 0r ~/.vim/templates/python_template.py
