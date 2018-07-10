@@ -48,4 +48,11 @@ endif
 
 colo ron
 
-au BufNewFile *.py 0r ~/.vim/templates/python_template.py
+"python auto header generation
+autocmd bufnewfile *.py so ~/.vim/templates/py_header.txt
+autocmd bufnewfile *.py exe "1," . 10 . "g/filename:.*/s//filename: " .expand("%")
+autocmd bufnewfile *.py exe "1," . 10 . "g/Creation date:.*/s//Creation date : " .strftime("%d-%m-%Y")
+autocmd Bufwritepre,filewritepre *.py execute "normal ma"
+autocmd Bufwritepre,filewritepre *.py exe "1," . 10 . "g/Last modification date:.*/s/Last modification date:.*/Last modification date: " .strftime("%c")
+autocmd bufwritepost,filewritepost *.py execute "normal `a"
+
