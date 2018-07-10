@@ -1,0 +1,19 @@
+:insert
+#!/usr/bin/python3.6
+
+#################################################
+# filename: ".py"
+# Author: Juan Carlos Gomez (jcki)
+# Creation date:            
+# Last modification date:   
+#################################################
+
+
+#################################################
+# purpose: 
+#################################################
+
+def main():
+    """ Main docstring"""
+    pass
+.
