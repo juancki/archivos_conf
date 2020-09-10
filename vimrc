@@ -1,5 +1,4 @@
 
-
 set nocompatible              " required
 filetype off                  " required
 
@@ -13,7 +12,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'tmux-plugins/vim-tmux'
 
 " ...
 
@@ -22,11 +20,11 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-map <F8> :w<CR>:!clear;python %<CR>
-map <F9> :w<CR>:!clear;python -i % <CR>
+map <F8> :w<CR>:!clear;python3 %<CR>
+map <F9> :w<CR>:!clear;python3 -i % <CR>
 runtime! archlinux.vim
 let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_server_python_interpreter = '/usr/bin/python3.6'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 :syntax on
 
 " Python IDE configuration
@@ -56,3 +54,15 @@ autocmd Bufwritepre,filewritepre *.py execute "normal ma"
 autocmd Bufwritepre,filewritepre *.py exe "1," . 10 . "g/Last modification date:.*/s/Last modification date:.*/Last modification date: " .strftime("%c")
 autocmd bufwritepost,filewritepost *.py execute "normal `a"
 
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+inoremap { {}<c-o>i
+inoremap [ []<c-o>i
+inoremap ( ()<c-o>i
+
+inoremap {<cr> {<cr>}<c-o>O
